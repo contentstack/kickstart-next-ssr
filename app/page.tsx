@@ -1,6 +1,4 @@
-import { JSDOM } from "jsdom";
-import createDOMPurify from "dompurify";
-
+import DOMPurify from "isomorphic-dompurify";
 import { getPage, stack } from "@/lib/contentstack";
 import { headers } from "next/headers";
 import Image from "next/image";
@@ -22,9 +20,6 @@ export default async function Home({
   }
 
   const page = await getPage("/");
-
-  const { window } = new JSDOM("");
-  const DOMPurify = createDOMPurify(window);
 
   return (
     <main className="max-w-(--breakpoint-md) mx-auto">
