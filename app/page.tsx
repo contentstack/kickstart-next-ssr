@@ -6,16 +6,23 @@ import Image from "next/image";
 export default async function Home({
   searchParams,
 }: {
-  searchParams: Promise<any>;
+  searchParams: Promise<{
+    live_preview?: string;
+    content_type_uid?: string;
+    entry_uid?: string;
+    preview_timestamp?: string;
+  }>;
 }) {
   await headers();
-  const { live_preview, entry_uid, content_type_uid } = await searchParams;
+  const { live_preview, entry_uid, content_type_uid, preview_timestamp } =
+    await searchParams;
 
   if (live_preview) {
     stack.livePreviewQuery({
       live_preview,
       contentTypeUid: content_type_uid || "",
       entryUid: entry_uid || "",
+      preview_timestamp: preview_timestamp || "",
     });
   }
 
@@ -35,6 +42,11 @@ export default async function Home({
             <li>
               entry_uid: <code>{entry_uid}</code>
             </li>
+            {preview_timestamp ? (
+              <li>
+                preview_timestamp: <code>{preview_timestamp}</code>
+              </li>
+            ) : null}
           </ul>
         ) : null}
 
