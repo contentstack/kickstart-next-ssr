@@ -6,7 +6,12 @@ import Image from "next/image";
 export default async function Home({
   searchParams,
 }: {
-  searchParams: Promise<any>;
+  searchParams: Promise<{
+    live_preview?: string;
+    content_type_uid?: string;
+    entry_uid?: string;
+    preview_timestamp?: string;
+  }>;
 }) {
   await headers();
   const { live_preview, entry_uid, content_type_uid, preview_timestamp } =
