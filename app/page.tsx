@@ -1,5 +1,5 @@
 import DOMPurify from "isomorphic-dompurify";
-import { getPage, stack } from "@/lib/contentstack";
+import { getPage, getStack } from "@/lib/contentstack";
 import { headers } from "next/headers";
 import Image from "next/image";
 
@@ -17,6 +17,8 @@ export default async function Home({
   const { live_preview, entry_uid, content_type_uid, preview_timestamp } =
     await searchParams;
 
+  const stack = getStack();
+
   if (live_preview) {
     stack.livePreviewQuery({
       live_preview,
@@ -26,7 +28,7 @@ export default async function Home({
     });
   }
 
-  const page = await getPage("/");
+  const page = await getPage("/", stack);
 
   return (
     <main className="max-w-(--breakpoint-md) mx-auto">
