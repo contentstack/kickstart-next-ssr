@@ -1,6 +1,6 @@
 {
   "name": "kickstart-next-ssr",
-  "version": "1.0.22",
+  "version": "1.1.0",
   "private": false,
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
   "dependencies": {
     "@contentstack/delivery-sdk": "^5.2.1",
     "@contentstack/live-preview-utils": "^4.4.4",
-    "@timbenniks/contentstack-endpoints": "^2.1.0",
+    "@contentstack/utils": "^1.9.1",
     "isomorphic-dompurify": "^3.17.0",
     "next": "^16.2.9",
     "react": "^19.2.7",
@@ -37,8 +37,10 @@
     "typescript": "^5"
   },
   "overrides": {
-    "form-data": "4.0.6",
-    "postcss": "8.5.15"
-
+    "postcss": "8.5.14",
+    "qs": "6.15.2"
+  },
+  "optionalDependencies": {
+    "lightningcss-linux-x64-gnu": "^1.32.0"
   }
 }
