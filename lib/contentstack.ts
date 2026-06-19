@@ -5,7 +5,7 @@ import { Page } from "./types";
 
 // Region and endpoint configuration - computed once at module load time
 // region resolution is now handled by getContentstackEndpoint
-const endpoints = getContentstackEndpoint(process.env.NEXT_PUBLIC_CONTENTSTACK_REGION || 'us', '', true) as ContentstackEndpoints
+const endpoints = getContentstackEndpoint(process.env.NEXT_PUBLIC_CONTENTSTACK_REGION || 'NA', '', true) as ContentstackEndpoints
 
 /**
  * Creates a new Contentstack SDK instance for each request.
